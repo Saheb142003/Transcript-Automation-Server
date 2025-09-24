@@ -1,4 +1,3 @@
-// server.js
 import express from "express";
 import helmet from "helmet";
 import rateLimit from "express-rate-limit";
@@ -79,7 +78,7 @@ async function getTranscript(videoUrl) {
       "--single-process",
       "--disable-gpu",
     ],
-    executablePath: process.env.CHROMIUM_PATH || undefined, // <--- key line
+    executablePath: process.env.CHROMIUM_PATH || undefined,
   });
 
   try {
