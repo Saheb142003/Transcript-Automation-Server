@@ -8,8 +8,8 @@ import dotenv from "dotenv";
 import morgan from "morgan";
 
 dotenv.config();
-
 const app = express();
+app.set("trust proxy", 1);
 const PORT = process.env.PORT || 8000;
 
 // ---------- SECURITY MIDDLEWARES ----------
@@ -79,6 +79,7 @@ async function getTranscript(videoUrl) {
       "--single-process",
       "--disable-gpu",
     ],
+    executablePath: process.env.CHROMIUM_PATH || undefined, // <--- key line
   });
 
   try {
